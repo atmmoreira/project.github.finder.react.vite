@@ -10,15 +10,16 @@
 <!-- References for Create budgets :: https://shields.io/category/build -->
 <div align="center">
   <img src="https://img.shields.io/static/v1?label=STATUS&message=in progress&color=red&style=for-the-badge"/>
-  <img src="https://img.shields.io/static/v1?label=Tailwindcss&message=3.3.5&color=darkblue&style=for-the-badge"/>
+  <img src="https://img.shields.io/static/v1?label=tailwindcss&message=3.3.5&color=darkblue&style=for-the-badge"/>
   <img src="https://img.shields.io/static/v1?label=React&message=18.2.0&color=blue&style=for-the-badge"/>
   <img src="https://img.shields.io/static/v1?label=Javascript&message=es6&color=yellow&style=for-the-badge"/>
+  <img src="https://img.shields.io/static/v1?label=Daisyui&message=4.4.2&color=red&style=for-the-badge"/>
 </div>
 
 <br >
 
 ## Description
-This is a project to improve my skills with Javascript, React and CSS. Building a GitHub Finder.
+This is a project to improve my skills with Javascript, React and CSS. Building a User Interface for GitHub Finder.
 
 ## Screens Layout
 <div align="center">
@@ -33,8 +34,8 @@ This is a project to improve my skills with Javascript, React and CSS. Building 
 # Javascript
 # Git / Github
 # React 18.2.0
-# TailwindCSS 3.3.5
-# React Router DOM
+# TailWindCSS 3.3.5
+# DaiyUI 4.4.2
 ```
 
 <br >
