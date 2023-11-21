@@ -1,0 +1,6 @@
+# All Users from GitHub
+GET https://api.github.com/users
+
+###
+# Specific User
+GET https://api.github.com/users/atmmoreira
