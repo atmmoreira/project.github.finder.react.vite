@@ -8,7 +8,7 @@ function UserResults() {
 
   useEffect(() => {
     fetchUsers();
-  }, [fetchUsers]);
+  }, []);
 
   if (!loading) {
     return (

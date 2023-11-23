@@ -13,7 +13,7 @@ export const GithubProvider = ({ children }) => {
   };
 
   return (
-    <GithubContext.Provider value={(users, loading, fetchUsers)}>
+    <GithubContext.Provider value={{users, loading, fetchUsers}}>
       {children}
     </GithubContext.Provider>
   );
