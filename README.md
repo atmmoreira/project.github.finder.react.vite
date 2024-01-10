@@ -9,7 +9,7 @@
 <br >
 <!-- References for Create budgets :: https://shields.io/category/build -->
 <div align="center">
-  <img src="https://img.shields.io/static/v1?label=STATUS&message=in progress&color=red&style=for-the-badge"/>
+  <img src="https://img.shields.io/static/v1?label=STATUS&message=complete&color=blue&style=for-the-badge"/>
   <img src="https://img.shields.io/static/v1?label=tailwindcss&message=3.3.5&color=darkblue&style=for-the-badge"/>
   <img src="https://img.shields.io/static/v1?label=React&message=18.2.0&color=blue&style=for-the-badge"/>
   <img src="https://img.shields.io/static/v1?label=Javascript&message=es6&color=yellow&style=for-the-badge"/>
@@ -20,10 +20,16 @@
 
 ## Description
 This is a project to improve my skills with Javascript, React and CSS. Building a User Interface for GitHub Finder.
+To see this project click <a href="https://project-github-finder-react-vite.vercel.app/"> here </a>.
 
 ## Screens Layout
 <div align="center">
-  <img src="readme/layout/layout.jpg" alt="Login"/>
+Home Page
+  <img src="readme/layout/homepage.png" alt="Login"/>
+Search Page
+  <img src="readme/layout/search-page.png" alt="Login"/>
+User Page
+  <img src="readme/layout/user-page.png" alt="Login"/>
 </div>
 
 <br >
@@ -45,6 +51,7 @@ This is a project to improve my skills with Javascript, React and CSS. Building 
 # Git
 # Node
 # Vite
+# Vercel
 ```
 
 <br >
