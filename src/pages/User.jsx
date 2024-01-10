@@ -5,14 +5,23 @@ import Spinner from "../components/layout/Spinner";
 import RepoList from "../components/repos/RepoList";
 import { useParams } from "react-router-dom";
 import GithubContext from "../context/github/GithubContext";
+import { getUser, getUserRepos } from "../context/github/GitHubActions";
+
 function User() {
-  const { getUser, user, loading, getUserRepos, repos } = useContext(GithubContext);
+  const { user, loading, repos, dispatch } = useContext(GithubContext);
   const params = useParams();
 
   useEffect(() => {
-    getUser(params.login);
-    getUserRepos(params.login);
-  }, []);
+    dispatch({ type: "SET_LOADING" });
+
+    const getUserData = async () => {
+      const userData = await getUser(params.login);
+      const userRepo = await getUserRepos(params.login);
+      dispatch({type: 'GET_USER', payload: userData});
+      dispatch({type: 'GET_REPOS', payload: userRepo});
+    }
+    getUserData();
+  }, [dispatch, params.login]);
 
   const {
     name,
@@ -51,7 +60,7 @@ function User() {
               </figure>
               <div className="card-body justify-end">
                 <h1 className="card-title mb-0">{name}</h1>
-                <p className='flex-grow-0'>{login}</p>
+                <p className="flex-grow-0">{login}</p>
               </div>
             </div>
           </div>
@@ -67,7 +76,14 @@ function User() {
               </h1>
               <p>{bio}</p>
               <div className="mt-4 card-actions">
-                <a href={html_url} className="btn btn-outline" target="_blank" rel="noreferrer">Visit GitHub Profile</a>
+                <a
+                  href={html_url}
+                  className="btn btn-outline"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Visit GitHub Profile
+                </a>
               </div>
             </div>
 
@@ -83,7 +99,14 @@ function User() {
                 <div className="stat">
                   <div className="stat-title text-md">Website</div>
                   <div className="text-lg stat-value">
-                  <a href={`https://${blog}`} target="_blank" rel="noreferrer">{blog}</a></div>
+                    <a
+                      href={`https://${blog}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {blog}
+                    </a>
+                  </div>
                 </div>
               )}
 
@@ -91,7 +114,14 @@ function User() {
                 <div className="stat">
                   <div className="stat-title text-md">Twitter</div>
                   <div className="text-lg stat-value">
-                  <a href={`https://teitter.com/${twitter_username}`} target="_blank" rel="noreferrer">{twitter_username}</a></div>
+                    <a
+                      href={`https://teitter.com/${twitter_username}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {twitter_username}
+                    </a>
+                  </div>
                 </div>
               )}
             </div>
@@ -101,32 +131,40 @@ function User() {
         <div className="w-full py-5 mb-6 rounded-lg shadow-md bg-base-100 stats">
           <div className="stat">
             <div className="stat-figure text-secondary">
-              <FaUsers className="text-3xl md:text-5xl"/>              
+              <FaUsers className="text-3xl md:text-5xl" />
             </div>
             <div className="stat-title pr-5">Followers</div>
-            <div className="stat-value pr-5 text-3xl md:text-4xl">{followers}</div>
-          </div>      
-          <div className="stat">
-            <div className="stat-figure text-secondary">
-              <FaUserFriends className="text-3xl md:text-5xl"/>              
+            <div className="stat-value pr-5 text-3xl md:text-4xl">
+              {followers}
             </div>
-            <div className="stat-title pr-5">Following</div>
-            <div className="stat-value pr-5 text-3xl md:text-4xl">{following}</div>
-          </div> 
-          <div className="stat">
-            <div className="stat-figure text-secondary">
-              <FaCodepen className="text-3xl md:text-5xl"/>              
-            </div>
-            <div className="stat-title pr-5">Publi Repos</div>
-            <div className="stat-value pr-5 text-3xl md:text-4xl">{public_repos}</div>
           </div>
           <div className="stat">
             <div className="stat-figure text-secondary">
-              <FaStore className="text-3xl md:text-5xl"/>              
+              <FaUserFriends className="text-3xl md:text-5xl" />
+            </div>
+            <div className="stat-title pr-5">Following</div>
+            <div className="stat-value pr-5 text-3xl md:text-4xl">
+              {following}
+            </div>
+          </div>
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <FaCodepen className="text-3xl md:text-5xl" />
+            </div>
+            <div className="stat-title pr-5">Publi Repos</div>
+            <div className="stat-value pr-5 text-3xl md:text-4xl">
+              {public_repos}
+            </div>
+          </div>
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <FaStore className="text-3xl md:text-5xl" />
             </div>
             <div className="stat-title pr-5">Publi Gist</div>
-            <div className="stat-value pr-5 text-3xl md:text-4xl">{public_gists}</div>
-          </div>           
+            <div className="stat-value pr-5 text-3xl md:text-4xl">
+              {public_gists}
+            </div>
+          </div>
         </div>
 
         <RepoList repos={repos} />
