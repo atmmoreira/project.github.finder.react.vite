@@ -19,7 +19,7 @@
 <br >
 
 ## Description
-This is a project to improve my skills with Javascript, React and CSS. Building a User Interface for GitHub Finder.
+This is a project to improve my skills with React, TailwindCSS and DaisyUI. Consuming API to GitHub Profiles.
 To see this project click <a href="https://project-github-finder-react-vite.vercel.app/"> here </a>.
 
 ## Screens Layout
